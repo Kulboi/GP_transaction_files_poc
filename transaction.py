@@ -3,7 +3,7 @@ import sys
 import json
 
 # TRANSACTION_FILE = open("CAPs6.txt", "r")
-TRANSACTION_FILE = sys.argv
+TRANSACTION_FILE = open(sys.argv, "r")
 
 def dataParser():
   transaction_dump_array = []

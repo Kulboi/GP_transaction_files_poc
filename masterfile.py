@@ -2,7 +2,7 @@ import sys
 import json
 
 # MASTER_FILE = open("CAPmast.txt", "r")
-MASTER_FILE = sys.argv
+MASTER_FILE = open(sys.argv, "r")
 
 def dataParser():
   master_dump_array = []
