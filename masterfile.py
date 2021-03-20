@@ -1,25 +1,25 @@
 import sys
 import json
 
-# MASTER_FILE = open("CAPmast.txt", "r")
-MASTER_FILE = open(sys.argv, "r")
+MASTER_FILE = open(sys.argv[0], "r")
 
-def dataParser():
+def fileParser():
   master_dump_array = []
   for line in MASTER_FILE:
     master_dump_array.append({
-      "CHN": line[0:15].strip(), 
-      'fullname': line[15:45].strip(),
-      'address': line[55:120].strip(),
-      'location': line[120:200].strip(),
-      'bank': line[200:243].strip(),
-      'rand_num': line[243:273].strip(),
+      "chn": line[0:15].strip(), 
+      'names': line[15:45].strip(),
+      'address1': line[55:120].strip(),
+      'address2': line[120:200].strip(),
+      'country': line[200:243].strip()[0:3],
+      'bank': line[200:243].strip()[3:],
+      'bvn': line[243:273].strip(),
       'email': line[273:313].strip(),
-      'rand_num_2': line[313:353].strip(),
-      "contact": line[353:380].strip()
+      'phone_number': line[313:353].strip(),
+      "next_of_kin": line[353:380].strip()
     })
 
   return json.dumps(master_dump_array)
 
 
-dataParser()
+fileParser()
